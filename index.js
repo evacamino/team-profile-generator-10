@@ -27,6 +27,20 @@ class Intern {
   }
 }
 
+class Engineer {
+  constructor(name,id,email, github) {
+    super(name, id, email);
+    this.github = github
+  }
+  getGithub() {
+    return this.github;
+  }
+  getRole() {
+    return "Enginer"
+  }
+}
+
+
 module.exports = {Manager,Engineer,Intern}
 
 //inquierer
