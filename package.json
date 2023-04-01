@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/evacamino/team-profile-generator-10#readme",
   "dependencies": {
-    "inquirer": "^9.1.5",
+    "inquirer": "^8.2.5",
     "jest": "^29.5.0"
   }
 }
