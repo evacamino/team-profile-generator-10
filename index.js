@@ -3,6 +3,9 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const inquirer = require("inquirer");
 const Employee = require("./lib/Employee");
+const manangerList = []
+const engineerList = []
+const internList = []
 
 const managerPrompts = [
   {
@@ -74,22 +77,35 @@ const internPrompts = [
 
 async function promptManager() {
   await inquirer.prompt(managerPrompts).then(function (answers) {
-    console.log(answers);
+    const manager = new Manager(answers.name, answers.id, answers.email, answers.officenumber)
+    manangerList.push(manager);
   });
 }
-promptManager();
+async function promptEngineer(){
+  await inquirer.prompt(engineerPrompts).then(function(answers){
+   const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
+   engineerList.push(engineer);
+  })
+}
 
 async function promptIntern(){
   await inquirer.prompt(internPrompts).then(function(answers){
-    console.log(answers)
-  })
+    const intern = new Intern(answers.name, answers.id, answers.email, answers.school)
+    internList.push(intern);
+})
 }
-promptIntern();
-// function promptEngineer(){
-//   inquirer.prompt(engineerPrompts).then(function(answers){
-//     console.log(answers)
-//   })
-// }
-// promptEngineer();
+async function main() {
+  await promptManager();
+  await promptEngineer();
+  await promptIntern();
+ await console.log(manangerList);
+await console.log(engineerList);
+await console.log(internList);
+}
+
+main();
+
+
+
 //inquierer
 // module.exports = Employee
