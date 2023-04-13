@@ -1,34 +1,20 @@
 const Employee = require('../lib/Employee')
 
 describe('Employee Test Suite', ()=>{
-        it("should not set any properties if they are not provided", () => {
-            const employee = new Employee();
+        it("can get values from employee constructor", () => {
+            const employee = new Employee('Jim','12','asifjasdfo@gmail.com');
             
-            expect(employee.getName()).toBeUndefined();
-            expect(employee.getId()).toBeUndefined();
-            expect(employee.getEmail()).toBeUndefined();
+            expect(employee.getName()).toBe('Jim');
+            expect(employee.getId()).toBe('12');
+            expect(employee.getEmail()).toBe('asifjasdfo@gmail.com');
+            expect(employee.getRole()).toBe('Employee')
+        })
+        it("Can set values", () => {
+            const employee = new Employee('Jim','12','asifjasdfo@gmail.com');
+            expect(typeof employee).toBe('object')
+            expect(employee.name).toBe('Jim');
+            expect(employee.id).toBe('12');
+            expect(employee.email).toBe('asifjasdfo@gmail.com');
         })
 
-        it("should not set an email if it is not provided",()=>{
-            const employee = new Employee("Sally", 25);
-            const actualEmail = employee.getEmail();
-
-            expect(actualEmail).toBeUndefined()
-        })
-
-        it('should return a name', () => {
-            const expectedName = 'Lottie';
-
-            const employee = new Employee (expectedName);
-
-            const actualName = employee.getName();
-
-            expect(actualName).toEqual(expectedName);    
-        })
-        it('should return an ID', () =>{
-            const expectedId = 10
-            const employee = new Employee('',expectedId);
-            const actualId = employee.getId();
-            expect(actualId).toEqual(expectedId);
-        })
 })
